@@ -1,9 +1,7 @@
 # pip install ollama langchain beautifulsoup4 chromadb gradio
-# pip install selenium
 # pip install jq
 import bs4 
 from bs4 import BeautifulSoup
-
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_community.vectorstores import Chroma
@@ -15,13 +13,6 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 from langchain_core.documents import Document
-#from selenium import webdriver
-#from selenium.webdriver.chrome.service import Service
-#from selenium.webdriver.common.by import By
-#from selenium.webdriver.chrome.options import Options
-#from selenium.webdriver.support.ui import WebDriverWait       
-#from selenium.webdriver.common.by import By       
-#from selenium.webdriver.support import expected_conditions as EC
 from langchain_community.document_loaders import JSONLoader
 import urllib.request, json 
 import datetime
@@ -104,6 +95,7 @@ def rag_chain(question):
 print("-------------------------------------------------------")
 result1 = rag_chain("Please return the main topic and date contained in the context under the headings TITLE: and DATE: , do not use asterisks")
 print(result1["answer"])
+print("AI generated based on Daily Reflections found at: https://www.aa.org/daily-reflections")
 print("")
 result2 = rag_chain("Write an insightful summery about the following passage: " + context_string + ", with the heading PASSAGE SUMMERY: followed by one to three insightful paragraphs that relate the passage and experience to the principles in the AA 12 steps with the heading of STEP RELATED DISCUSSION: , without quoting the litterature.")
 print(result2["answer"])
