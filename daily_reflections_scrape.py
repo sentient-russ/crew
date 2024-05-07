@@ -1,3 +1,4 @@
+# creates a ai generated commentary for the aa daily reflection and stores it in the database for groupconscience.ai
 # pip install ollama langchain beautifulsoup4 chromadb gradio
 # pip install jq
 import bs4 
@@ -16,6 +17,7 @@ from langchain_core.documents import Document
 from langchain_community.document_loaders import JSONLoader
 import urllib.request, json 
 import datetime
+import data_access as db
 
 current_time = datetime.datetime.now()
 current_day_int = current_time.day
@@ -25,7 +27,6 @@ if current_day_int < 10:
     month_day["month"] = "0" + str(current_day_int)
 else:
     month_day["month"] = str(current_day_int)
-
 if current_month_int < 10:
     month_day["day"] = "0" + str(current_month_int)
 else:
@@ -104,3 +105,22 @@ result3 = rag_chain("Respond like a loving sober drunk would in a short paragrap
 print("")
 print(result3["answer"])
 print("-------------------------------------------------------")
+
+# store in db
+
+passage_topic = result1["answer"]
+passage_summery = result2["answer"]
+wild_rumpus = result3["answer"]
+db.store_reflection(
+    ref_title,
+    ref_date,
+    ref_passage,
+    ref_passage_source,
+    ref_experience_p1,
+    ref_experience_p2,
+    ref_experience_p3,
+    ref_experience_p4,
+    passage_topic,
+    passage_summery,
+    wild_rumpus
+    )
