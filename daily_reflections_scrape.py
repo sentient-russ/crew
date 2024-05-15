@@ -107,7 +107,6 @@ print(result3["answer"])
 print("-------------------------------------------------------")
 
 # store in db
-
 passage_topic = result1["answer"]
 passage_summery = result2["answer"]
 wild_rumpus = result3["answer"]
