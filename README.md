@@ -7,7 +7,7 @@ This repo contains a collection of AI assistants and tooling. Being on the foref
 llama3, langchain, BeautifulSoup, python
 
 ### **Utilities:**
-> - daily_reflections_scrape.py, Collects the days reflection and then itterates it through with AI LLM to generate outut summary of the reflection
+> - daily_reflections_scrape.py, Collects the days reflection and then iterates it through AI LLM to generate an output summary of the reflection
 > - web_scrape.py, Scrapes information from MagnaDigi.com's about page and summarizes it with AI LLM
-> - rag_langchain_ingest.py, loads and stores source documents into a chroma vector store for huggface langchain inference
-> - rag_llama_ingest.py, scaffolds directories, loads data, stores in persistent llama index store for inference
+> - rag_langchain_ingest.py, loads and stores source documents into a chroma vector store for huggingface langchain inference
+> - rag_llama_ingest.py, scaffolds directories, loads data, and stores loaded documents in persistent llama index store for inference
