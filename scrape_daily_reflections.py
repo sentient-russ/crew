@@ -1,6 +1,7 @@
 # creates a ai generated commentary for the aa daily reflection and stores it in the database for groupconscience.ai
 # pip install ollama langchain beautifulsoup4 chromadb gradio
 # pip install jq
+
 import bs4 
 from bs4 import BeautifulSoup
 from langchain.text_splitter import RecursiveCharacterTextSplitter

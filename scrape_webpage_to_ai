@@ -29,7 +29,7 @@ docs[0].page_content = replacement_str3
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200) #init splitter
 split_text = text_splitter.split_documents(docs)
 
-# create vector store
+# non-persistant vector store
 embeddings = OllamaEmbeddings(model="llama3")
 vectorstore = Chroma.from_documents(documents=split_text, embedding=embeddings)
 # init retriever
